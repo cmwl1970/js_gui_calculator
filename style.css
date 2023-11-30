@@ -1,0 +1,277 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Main content styles */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 20px 0; 
+}
+
+/* Header styles */
+.header {
+    width: calc(100% - 40px);
+    height: 86.7px; 
+    border-radius: 20px;
+    background-color: #7367f0; 
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.quarter-spacer {
+    flex: .25;
+}
+
+.frame {
+    position: relative;
+    width: 412px; /* Original width */
+    height: 652px;
+    background-color:rgb(209, 203, 203);
+    border-radius: 20px;
+    margin: auto; /* This centers the frame */
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 1.25fr repeat(5, 1fr);
+    grid-template-areas:
+        "display display display display"
+        "clear negpos percent divide"
+        "seven eight nine multiply"
+        "four five six subtract"
+        "one two three add"
+        "zero zero decimal equals";
+    grid-gap: 5px; /* Adjust the gap between grid items */
+    padding: 10px; /* Padding around the grid */
+    justify-items: center; /* Center items horizontally */
+    align-content: start; /* Align content to the start vertically */
+}
+
+.frame .zero-button { grid-area: zero; }
+.frame .decimal-button { grid-area: decimal; }
+.frame .equal-button { grid-area: equals; }
+.frame .one-button { grid-area: one; }
+.frame .two-button { grid-area: two; }
+.frame .three-button { grid-area: three; }
+.frame .add-button { grid-area: add; }
+.frame .four-button { grid-area: four; }
+.frame .five-button { grid-area: five; }
+.frame .six-button { grid-area: six; }
+.frame .subtract-button { grid-area: subtract; }
+.frame .seven-button { grid-area: seven; }
+.frame .eight-button { grid-area: eight; }
+.frame .nine-button { grid-area: nine; }
+.frame .multiply-button { grid-area: multiply; }
+.frame .clear-button { grid-area: clear; }
+.frame .negpos-button { grid-area: negpos; }
+.frame .percent-button { grid-area: percent; }
+.frame .divide-button { grid-area: divide; }
+.frame .display { grid-area: display; }
+
+/* Shared styles for most calculator buttons */
+.calc-button {
+    /* Standard styles for buttons */
+    border: 1px solid #b9b9b9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 48px;
+    color: #3c2481;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.frame .equal-button {
+    border-radius: 0; /* Reset any inherited border-radius values */
+    border-bottom-right-radius: 20px;
+}
+
+.frame .zero-button {
+    border-bottom-left-radius: 20px;
+}
+
+.calc-button.percent-button:after {
+    content: "%";
+    font-size: 1.77vw; /* Adjust as needed */
+}
+
+.display {
+    background-color: #3c2481;
+    border-radius: 20px 20px 0 0; /* Rounded corners on top */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ellipsis for overflowed content */
+    width: 100%; /* Full width of the grid area */
+    height: 100%;
+    box-sizing: border-box;
+    padding: 5% 20px 0;
+}
+
+.display .calc-display {
+    flex: 1; /* Takes up the full width available */
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: flex-end; /* Align content to the right */
+    font-family: "JetBrains Mono-Regular", Helvetica;
+    font-weight: 400;
+    color: #c599ff;
+    font-size: 72px; /* Ensure the font size does not cause overflow */
+    
+}
+
+/* Equation display styles */
+.calc-history {
+    width: 412px;
+    height: 652px; /* Adjust height as needed */
+    border: 2px solid #cccccc;
+    border-radius: 20px;
+    background-color:rgb(209, 203, 203);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.calc-tape {
+    background-color: #ffffff; 
+    height: 100%; 
+    overflow: auto; /* Add scroll for overflow content */
+    box-sizing: border-box;
+    overflow-y: auto; /* Ensures scrolling */
+    white-space: pre-line; /* Allows for line breaks and spacing */
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.calculator-header h1 {
+    margin: 0;
+    font-size: 1.5em; /* Adjust size to match your design */
+}
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-label {
+    margin-right: 10px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    /* Define dark mode background colors, text colors, etc. */
+    background-color: #262626; /* Dark mode background color */
+    color: #B3B3B3; /* Dark mode text color */
+}
+
+body.dark-mode .header {
+    /* Dark mode styles for the header */
+    background-color: #1A1A1A; /* Dark mode header background color */
+}
+
+ 
+body.dark-mode .calc-history {
+    /* Dark mode styles for the frame and equation display */
+    background-color: #333; /* Dark mode background color */
+    color: #FFF; /* Dark mode text color */
+}
+
+body.dark-mode .frame, body.dark-mode .calc-tape {
+    background-color: rgb(60, 60, 60);
+    
+}
+
+body.dark-mode .calc-button {
+    background-color: #333; /* Dark mode background color */
+    color: #FFF;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+

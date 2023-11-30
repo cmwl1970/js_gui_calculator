@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Running Total Calculator</h1>
+        <div class="theme-switch-wrapper">
+            <span class="theme-label">Light Theme</span>
+            <label class="theme-switch">
+                <input type="checkbox" id="theme-switch-checkbox">
+                <div class="slider round"></div>
+            </label>
+        </div>
+    </div>
+    <div class="content">
+        <div class="spacer"></div>
+        <div class="frame">
+            <div class="display">
+                <div class="calc-display">0</div>
+            </div>
+            <!-- Calculator buttons -->
+            <div class="calc-button divide-button">/</div>
+            <div class="calc-button percent-button"></div>
+            <div class="calc-button negpos-button">±</div>
+            <div class="calc-button clear-button">C</div>
+            <div class="calc-button multiply-button">x</div>
+            <div class="calc-button nine-button">9</div>
+            <div class="calc-button eight-button">8</div>
+            <div class="calc-button seven-button">7</div>
+            <div class="calc-button subtract-button">-</div>
+            <div class="calc-button six-button">6</div>
+            <div class="calc-button five-button">5</div>
+            <div class="calc-button four-button">4</div>
+            <div class="calc-button add-button">+</div>
+            <div class="calc-button three-button">3</div>
+            <div class="calc-button two-button">2</div>
+            <div class="calc-button one-button">1</div>
+            <div class="calc-button equal-button">=</div>
+            <div class="calc-button decimal-button">.</div>
+            <div class="calc-button zero-button">0</div>
+        </div>
+        
+        <div class="quarter-spacer"></div>
+        <div class="calc-history">
+            <div class="calc-tape"></div>
+        </div>
+        <div class="spacer"></div>
+        
+        
+    </div>
+
+    <script src="calculator.js"></script> 
+    <script src="history.js"></script>
+</body>
+</html>
